@@ -1,9 +1,15 @@
 package com.akshat.Library;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookStock {
     private List<Book> bookStock;
+
+    public BookStock() {
+        this.bookStock = new ArrayList<Book>();
+    }
+
     public List<Book> getBookStock() {
         return bookStock;
     }
@@ -35,12 +41,22 @@ public class BookStock {
     public void viewBookDetails(int book_id){
         for (Book book : bookStock){
             if (book.getId() == book_id) {
-                book.toString();
+                System.out.println(book);
                 return;
             }
         }
         System.out.println("No Such Book Found!!!");
     }
+
+    public boolean validateId(int id){
+        for (Book book : bookStock){
+            if(book.getId() == id){
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 
 }
